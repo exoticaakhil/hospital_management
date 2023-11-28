@@ -1,0 +1,50 @@
+{% extends 'nav3.html' %}
+{% load static %}
+{% block content %}
+<style>
+  body{
+    background-color: bisque;
+  }
+</style>
+<br><br><br><br>
+<div class="container card shadow m-5">
+		<div class="card-body">
+			<h5 class="p-2" style="border-bottom: 2px solid orange; text-align: center;">Login</h5>
+             <br>
+			<div class="container-fluid">
+				<form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+					<div class="form-row">
+
+						<div class="col-md-6">
+              <div class="form-group">
+                  <input type="text" name="uname" class="form-control py-3" placeholder="Enter User Name">
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="password" name="pwd" class="form-control py-3" placeholder="Enter Password"><br>
+              </div>
+            </div>
+
+          </div>
+          <button type="submit" class="btnSubmit bg-warning">Login</button>
+        </div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+  <br><br><br><br><br>
+           <footer class="container mt-5 text-center">
+            <div class="card">
+              <h5 class="card-header">MAK Hospital</h5>
+              <div class="card-body">
+                <h5 class="card-title">since 1967</h5>
+                <p class="card-text">connect us with on <br> <i class="fa-regular fa-envelope"></i> email <i class="fa-brands fa-facebook"></i>facebook <i class="fa-brands fa-twitter"></i>Twitter</p>
+              </div>
+            </div>
+	       </footer>
+
+{% endblock %}

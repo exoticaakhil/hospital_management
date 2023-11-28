@@ -1,0 +1,31 @@
+{% extends 'nav2.html' %}
+{% load static %}
+{% block content %}
+<style>
+	body{
+		background-color: bisque;
+	}
+</style>
+<div class="card mb-3">
+  <img class="card-img-top" src="https://www.livemint.com/lm-img/img/2023/07/30/600x338/It-is-a-noble-profession-but-becoming-a-doctor-is-_1690736586642.jpg" height="300" alt="Card image cap">
+  <div class="card-body" style="background-color: bisque;">
+    <h5 class="card-title" style="background-color: bisque;">Welcome {{doctor.name}}</h5>
+
+      <p class="card-text" style="background-color: bisque;">
+        "...DOCTORS, HAVE A BIG RESPONSIBILITY TO BRING SMILES ON THE FACES OF SUFFERING HUMANITY." <br>
+        "Doctor: Your devotion and care bring healing, comfort and hope."</p>
+  </div>
+</div>
+
+<br><br><br><br><br>
+<footer class="container mt-5 text-center">
+ <div class="card">
+   <h5 class="card-header">MAK Hospital</h5>
+   <div class="card-body">
+     <h5 class="card-title">since 1967</h5>
+     <p class="card-text">connect us with on <br> <i class="fa-regular fa-envelope"></i> email <i class="fa-brands fa-facebook"></i>facebook <i class="fa-brands fa-twitter"></i>Twitter</p>
+   </div>
+ </div>
+</footer>
+
+{% endblock content %}

@@ -1,0 +1,83 @@
+{% extends 'nav3.html' %}
+{% load static %}
+{% block content %}
+<style>
+body{
+    background-color: bisque;
+  }
+</style>
+<br>
+<div class="container card shadow m-5" style="background-color: bisque;">
+		<div class="card-body" >
+			<h5 class="p-2" style="border-bottom: 2px solid orange">Add Patient</h5>
+             <br>
+			<div class="container-fluid">
+				<form action="{% url 'patient_signup' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+					<div class="form-row">
+
+						<div class="col-sm-12">
+							<div class="form-group">
+								<label>Patient Name</label>
+								<input type="text" name="name" class="form-control" placeholder="Enter Doctor Name" required>
+							</div>
+						</div>
+
+                    	<div class="col-sm-12">
+							<div class="form-group">
+								<label>Mobile Number</label>
+								<input type="text" name="mobile" class="form-control" placeholder="Enter Ten Digit Mobile Number" required>
+							</div>
+						</div>
+
+						<div class="col-sm-12">
+							<div class="form-group">
+								<label>Gender</label>
+								<input type="radio" name="gender" value="Male"> Male
+								<input type="radio" name="gender" value="Female"> Female
+							</div>
+						</div>
+						<div class="col-sm-12">
+							<div class="form-group">
+								<label>Email</label>
+								<input type="email" name="mail" class="form-control" placeholder="Enter Ten Digit Mobile Number" required>
+							</div>
+						</div>
+
+						<div class="col-sm-12">
+							<div class="form-group">
+								<label>Address</label>
+                                <textarea name="address" class="form-control" placeholder="Enter Doctor Specialization" required></textarea>
+							</div>
+						</div>
+						<div class="col-sm-12">
+							<div class="form-group">
+								<label>Username</label>
+								<input type="text" name="User" class="form-control" placeholder="enter User" required>
+							</div>
+							<div class="form-group">
+								<label for="exampleDropdownFormPassword1">Choose Image</label>
+								<input type="file" name="image" class="form-control btn" id="exampleDropdownFormPassword1" required>
+							  </div>
+					</div>
+	
+					<input type="submit" value="Submit" class="btn btn-primary">
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	<br><br>
+<div>
+           <footer class="container mt-5 text-center">
+            <div class="card">
+              <h5 class="card-header">MAK Hospital</h5>
+              <div class="card-body">
+                <h5 class="card-title">since 1967</h5>
+                <p class="card-text">connect us with on <br> <i class="fa-regular fa-envelope"></i> email <i class="fa-brands fa-facebook"></i>facebook <i class="fa-brands fa-twitter"></i>Twitter</p>
+              </div>
+            </div>
+	       </footer>
+</div>
+
+{% endblock %}
