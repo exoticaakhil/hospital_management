@@ -12,7 +12,7 @@ from django.contrib.auth import update_session_auth_hash
 # Create your views here.
 def pharsignup(request):
     if request.method=='POST':
-        n = request.POST['name']
+        n = request.POST['name1']
 
         p = request.POST['User']
 
@@ -22,6 +22,7 @@ def pharsignup(request):
         usr=Pharmacy1(user=use,Name=n)
         usr.user= use
         usr.save()
+        messages.info(request,'Successfully created ')
     return render(request,'login.html')
 def search_view2(request):
     # whatever user write in search box we get in query
@@ -40,7 +41,7 @@ def search_view2(request):
 def search_view1(request):
     # whatever user write in search box we get in query
     query = request.GET['query']
-    products=Pharmacy.objects.all().filter(Patientno__icontains=query)
+    products=Pharmacy2.objects.all().filter(Patientno__icontains=query)
     if 'patient_id' in request.COOKIES:
         patient_id = request.COOKIES['patient_id']
 
@@ -59,8 +60,8 @@ def appoimentscearch(request):
         return render(request,'searchappointment.html')
 def pharmcyscearch(request):
         return render(request,'pharscearch.html')
-def phalogin(request):
-        return render(request,'pharscearch.html')
+def pharlogin(request):
+        return render(request,'phrlogin.html')
 
 def search_view(request):
     # whatever user write in search box we get in query
@@ -185,6 +186,7 @@ def Index(request):
 def signupp(request):
     return render(request,'patient_signup.html')
 def approve(request,pk):
+    error=""
     pro = Patient1.objects.get(id=pk)
     pa = str(random.randint(100000,999999))
     use = User.objects.create_user(email=pro.email,username=pro.username,password=pa)
@@ -193,11 +195,17 @@ def approve(request,pk):
     usr.user= use
     usr.save()
     pro.delete()
+    messages.info(request,'Patient Registraion as been approved')
     subject='Your Approval has been successful'
     message=f' sir, ur patient username={usr.user.username} \n user_id={usr.id}'' password={} '.format(pa)
     recipient=use.email
     send_mail(subject,message,settings.EMAIL_HOST_USER,[recipient])
-    return render(request, 'admin_home.html', locals())
+    try:
+       error = "no"
+    except:
+        error = "yes"
+
+    return render(request, 'add_appointment.html', locals())
 
 def patient_signup(request):
     error = ""
@@ -254,7 +262,7 @@ def adminlogin(request):
                 return render(request,'patlogin.html',{'patient':patient1})
             elif pha1:
                 login(request,user)
-                return render(request,'phrlogin.html')
+                return redirect('pharlogin')
             else :
                 login(request,user)
                 return redirect('admin_home')
@@ -374,7 +382,7 @@ def add_patient(request):
             error = "no"
         except:
             error = "yes"
-    return redirect('/')
+    return redirect('add_appointment')
 
 def view_patient(request):
     if not request.user.is_staff:
@@ -514,6 +522,12 @@ def Delete_Appointment(request,pk):
     usr.save()
     pro.delete()
     return render(request, 'admin_home.html', locals())
+def Delete_pharmacy(request,pk):
+    pro = Pharmacy.objects.get(id=pk)
+    usr=Pharmacy2.objects.create( Doctor1=pro.Doctor1, Patient1=pro.Patient1,Patientno=pro.Patientno,Symptoms=pro.Symptoms, medicine=pro.medicine)
+    usr.save()
+    pro.delete()
+    return redirect('pharmacy')
 
 def unread_queries(request):
     if not request.user.is_authenticated:

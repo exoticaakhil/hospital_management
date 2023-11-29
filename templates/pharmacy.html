@@ -54,7 +54,7 @@
                                         <td class="font-w600">{{i.Symptoms}}</td>
                                         <td class="font-w600">{{i.medicine}}</td>
 
-                                        <td class="font-w600"><a href="" class="text-primary">Get the bill</a></td>
+                                        <td class="font-w600"><a href="{% url 'Delete_pharmacy' i.id %}" class="text-primary">Delete</a></td>
                                     </tr>
                                         {% endfor %}
                                 </tbody>

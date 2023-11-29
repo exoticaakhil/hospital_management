@@ -15,6 +15,18 @@
 		background-color: bisque;
 	}
 </style>
+{% if error == "no" %}
+     <script>
+	   alert('approved');
+       window.location=("{% url  'add_appoiment' %}");
+     </script>
+{% endif %}
+
+{% if error == "yes" %}
+     <script>
+	    alert('Something went wrong, Try Again');
+     </script>
+{% endif %}
 
 <br><br><br><br>
 <div class="container card shadow m-5">

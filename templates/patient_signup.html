@@ -9,7 +9,7 @@ body{
 {% if error == "no" %}
      <script>
 	   alert('wait for approve');
-       window.location=("{% url  'patient_signup' %}");
+       window.location=("{% url  'login' %}");
      </script>
 {% endif %}
 
@@ -31,7 +31,7 @@ body{
 						<div class="col-sm-12">
 							<div class="form-group">
 								<label>Patient Name</label>
-								<input type="text" name="name" class="form-control" placeholder="Enter Doctor Name" required>
+								<input type="text" name="name" class="form-control" placeholder="Enter Patient Name" required>
 							</div>
 						</div>
 
@@ -59,7 +59,7 @@ body{
 						<div class="col-sm-12">
 							<div class="form-group">
 								<label>Address</label>
-                                <textarea name="address" class="form-control" placeholder="Enter Doctor Specialization" required></textarea>
+                                <textarea name="address" class="form-control" placeholder="Enter Address" required></textarea>
 							</div>
 						</div>
 						<div class="col-sm-12">

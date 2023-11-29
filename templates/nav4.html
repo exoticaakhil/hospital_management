@@ -9,17 +9,17 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
+  <script src="https://kit.fontawesome.com/0b1b56eff4.js" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="{% static 'style.css' %}">
 
 
   <style media="screen">
+    body{
+        background-color: #ffffff;
+    }
     a:link {
       text-decoration: none;
-    }
-    body{
-      background-color: bisque;
     }
 
     a {
@@ -38,7 +38,6 @@
       position: relative;
       height: 100vh;
     }
-
     .menu {
       background: #21446B;
       height: 100vh;
@@ -209,102 +208,89 @@
       }
     }
 
+    
+    .nav-link:hover{
+  color: lightblue !important;
+  font-weight:bold;
+  background-color : #931B86;
+  border-radius:10px
+}
+.nav-link{
+  font-weight:bold;
+}
+
+.navbar-brand{
+
+  text-shadow: 1px 1px lightblue;
+
+}
+.navbar-brand:hover{
+  color: #80F5D3 !important;
+}
+
   </style>
 </head>
 <body>
-  <!-- partial:index.partial.html -->
-  <nav class="menu" tabindex="0">
-    <div class="smartphone-menu-trigger"></div>
-    <header class="avatar">
-      <img src="{% static 'images/h8.png' %}" />
-      <br><br>
-      <h6 style="color : white">Admin</h6>
+    <nav class="menu" tabindex="0">
+        <div class="smartphone-menu-trigger"></div>
+        <header class="avatar">
+            <nav class="menu" tabindex="0">
+                <div class="smartphone-menu-trigger"></div>
+                <header class="avatar">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMwAAADACAMAAAB/Pny7AAAAZlBMVEX///8AAABoaGiHh4f8/PzX19fPz88tLS1sbGxFRUVVVVXi4uJjY2Pn5+f5+fk/Pz/t7e0zMzPExMROTk67u7vz8/NaWlpxcXEeHh6zs7MMDAyZmZmhoaElJSWOjo53d3cWFhZ/f3+kPK5sAAAD/0lEQVR4nO2Z2WLqIBRFQRNjjBm0caoa6///5BWMsBnS25dKH/Z6C2DLCnAOECEIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghimphidXXtjrPVEFuHiOt4Y9Vv9rtOPNr8WKzDas7W932qqDajI/XQ9j6bBoXsvntnkeYS0vbBdWtrb2r56w0z7Og8aKwraPD/NugjNx/U7vSBQdbEMh0H7by8oauhzgycnArt7ZmU6uCy3FaJrtBXYpJ5stseqyroOu6YlFCW08mA9E2xeoXvoxcQYzq1rZ8rgrqNTb1ZLZ2eRWRSPIWPBl5M0GgGT5N6V5Nm93gtHRlUPScZpKFMrYnJzttNmq8MigIZHbwdw5hUHwTgcxxnCO4PvSCyTduQ0fmZMs/Ytn0PQQystAvtl7akkENVrPy2qEMhIrilEZEEcrIj0dxc7HP6yraEGVg0O5pPDQRGRW6MMPoebcNWoEMjGKZSkRhZL6gn9sKHnQy70JlKwMLpki2+BVGZgmbEQlx9r57tGpgjxbIVDaEy/6bf/X7GJlbdQ07/MiiasFkQ6TmJbODtzBPqYIjI/pIj5+BGjLM0eyMR5lm7uXWhFiZTETev14wC5hkl70nc7ID2qbLME9QpoOoNHZYvWpMOcvMkwlya0pQRuT+OlexqTnbefR49yZ3ahkUTbYlMzgy/rLRx8XeDVaOTHO2dem2ZAZXJoPOPV61Kqogu5+FJwOptExyUHZxZUSHx0WVYXAd6ZSDMjUsmDQHZRdPRuQma+jjIg7V8+Dmjgwsp1QnMsCXEf0Yao86NsE8Kp7Byl0zF2szq1M5GAIZ8RyLz0HNqcru2D7HeeRGM5yWwx+LZord0rznZm+7uq/quq4aTwampZSnbPLfvIdQRtSPHUurYxNuCcrbcrncV76M6O3N3+Yv7QBeLORRz6kTHgue+EnTvff4+EN7M8NlrR7yUgaEMs5cjNw/v5OoTKYW/+4gQyIyooMtQsILADEhoznLCDEZjN9fSePzpExkwUzJ4EXCJuWymZLBkPtfGQGNbwnj84QMJsMfyMBu9PoX7s0cGdzat7O1YRXmmSe9nZQJt89xmS30bVtXlmAHMIL262RBICpT2xNnMGviMs5RQW/rUhCVgTQ4+Ot5QgYvA459oiAQk4Et2Sro1pQM3kcVqb+cWRk4cclwwkzKiDu8g8TfNI1MBx/AI9vgaZnG/2z4dozMbJTJ4DvMOfIDkx/XQRVeFia5QxvaUtPeR5lL+aI9xNbxzPwgrLO/La8pIlqVj4xrtskt0Ymfez+IV8arCSGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEII+SH/AMmhKznSaQINAAAAAElFTkSuQmCC" />
+                  <br><br>
+                  <h6 style="color : white">MAK Hospital</h6>
+                  <h6 style="color : white"> Welcomes you</h6>
+            
+                </header>
+                <ul>
+              </nav>
+            
+          <br><br>
 
-    </header>
-    <ul>
-      <li tabindex="0" class="icon-dashboard"> <a style="color:white; text-decoration:none;" href="{% url 'admin_home' %}"><span>Dashboard</span></a> </li>
+    
+        </header>
+        <ul>
 
-      <li tabindex="0" class="nav-item dropdown icon-customers">
-        <a href="" class="nav-link dropdown-toggle text-dark bg-light" id="navbardrop"
-				data-toggle="dropdown" style="color:white; text-decoration:none;"> Doctor</a>
-				<div class="dropdown-menu">
-					<a href="{% url 'add_doctor1' %}" class="dropdown-item">Add Doctor</a>
-					<a href="{% url 'view_doctor' %}" class="dropdown-item">View Doctor</a>
-				</div>
-      </li>
-
-      <li tabindex="0" class="nav-item dropdown icon-users">
-        <a href="" class="nav-link dropdown-toggle text-dark bg-light" id="navbardrop"
-				data-toggle="dropdown" style="color:white; text-decoration:none;"> Patient</a>
-				<div class="dropdown-menu">
-					<a href="{% url 'add_pat1' %}" class="dropdown-item">Add Patient</a>
-					<a href="{% url 'view_patient' %}" class="dropdown-item">View Patient</a>
-				</div>
-      </li>
-
-      <li tabindex="0" class="nav-item dropdown icon-calendar">
-        <a href="" class="nav-link dropdown-toggle text-dark bg-light" id="navbardrop"
-				data-toggle="dropdown" style="color:white; text-decoration:none;"> Appointment</a>
-				<div class="dropdown-menu">
-					<a href="{% url 'add_appointment' %}" class="dropdown-item">Add Appointment</a>
-					<a href="{% url 'view_appointment' %}" class="dropdown-item">View Appointment</a>
-				</div>
-      </li>
-      <li tabindex="0" class="nav-item dropdown icon-calendar">
-        <a href="" class="nav-link dropdown-toggle text-dark bg-light" id="navbardrop"
-				data-toggle="dropdown" style="color:white; text-decoration:none;">Notification</a>
-				<div class="dropdown-menu">
-
-<a href="{% url 'view_notification' %}" class="dropdown-item">approval</a>
-				</div>
-      </li>
-      <li tabindex="0" class="nav-item dropdown icon-calendar">
-        <a href="" class="nav-link dropdown-toggle text-dark bg-light" id="navbardrop"
-				data-toggle="dropdown" style="color:white; text-decoration:none;">Patient History</a>
-				<div class="dropdown-menu">
-          <div class="navbar-search smallsearch col-sm-7 col-xs-11">
-            <form  action="{% url "search_view" %}" method="get">
-              <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" name="query" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-              </form>
-          </div>
-				</div>
-      </li>
-        <li tabindex="0" class="nav-item dropdown icon-calendar">
-        <a href="" class="nav-link dropdown-toggle text-dark bg-light" id="navbardrop"
-				data-toggle="dropdown" style="color:white; text-decoration:none;"> View Queries</a>
-				<div class="dropdown-menu">
-					<a href="{% url 'unread_queries' %}" class="dropdown-item">Unread Queries</a>
-					<a href="{% url 'read_queries' %}" class="dropdown-item">Read Queries</a>
-				</div>
-      </li>
-    </ul>
-  </nav>
-
+        </ul>
+      </nav>
+    
   <main>
     <!-- nav start -->
     <div class="bs-example">
-      <nav class="navbar navbar-expand-md  navbar-dark fixed-top" style="background:#c2185b;">
-        <a href="#" class="navbar-brand">HOSPITAL MANAGEMENT SYSTEM</a>
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-          <div class="navbar-nav" style=" margin-left: 90%;">
-
-            <a href="{% url 'logout' %}" class="nav-item nav-link"><i class="fas fa-power-off"></i> Logout</a>
+        <nav class="navbar navbar-expand-sm" style border-bottom:1px solid red">
+            <!-- Brand -->
+            <a class="navbar-brand pl-5" href="#" style="color:rgb(0, 0, 0) ; font-weight : bold">Hospital Management System</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <!-- Links -->
+             <ul class="navbar-nav pl-5 text-center">
+          
+               <li class="nav-item">
+                 <a class="nav-link" href="{% url 'index' %}" style="color:rgb(17, 17, 17)"><ion-icon style="margin-right:2px" name="home-sharp"></ion-icon> Home</a>
+               </li>
+          
+               <li class="nav-item">
+                 <a class="nav-link" href="{% url 'about' %}" style="color:rgb(0, 0, 0)"><ion-icon style="margin-right:2px" name="people"></ion-icon> About</a>
+               </li>
+          
+               <li class="nav-item">
+                 <a class="nav-link" href="{% url 'contact' %}" style="color:rgb(1, 1, 1)"><ion-icon style="margin-right:2px" name="people"></ion-icon> Contact</a>
+               </li>
+        
+             </ul>
+          
           </div>
-        </div>
-      </nav>
+          </nav>
     </div>
     <!-- nav end -->
 
     <!-- content start-->
     {% block content %}
-
-    {% endblock content %}
-    <!-- content end-->
+    {% endblock %}
   </main>
 </body>
 </html>

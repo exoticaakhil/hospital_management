@@ -82,4 +82,10 @@ class Pharmacy(models.Model):
 class Pharmacy1(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     Name = models.CharField(max_length=255,null=True)
+class Pharmacy2(models.Model):
+    Doctor1=models.CharField(max_length=255,null=True)
+    Patient1=models.CharField(max_length=255,null=True)
+    Symptoms=models.CharField(max_length=255,null=True)
+    medicine=models.CharField(max_length=255,null=True)
+    Patientno=models.CharField(max_length=255,null=True)
     
