@@ -10,10 +10,23 @@ from django.conf import settings
 import os
 from django.contrib.auth import update_session_auth_hash
 # Create your views here.
+def pharsignup(request):
+    if request.method=='POST':
+        n = request.POST['name']
+
+        p = request.POST['User']
+
+        e = request.POST['pass']
+        use = User.objects.create_user(username=p,password=e)
+        use.save()
+        usr=Pharmacy1(user=use,Name=n)
+        usr.user= use
+        usr.save()
+    return render(request,'login.html')
 def search_view2(request):
     # whatever user write in search box we get in query
     query = request.GET['query']
-    products=Appointment.objects.all().filter(patientno__icontains=query)
+    products=Pharmacy.objects.all().filter(Patientno__icontains=query)
     if 'patient_id' in request.COOKIES:
         patient_id = request.COOKIES['patient_id']
 
@@ -40,9 +53,13 @@ def search_view1(request):
     return render(request,'admin_home.html')
 def docsearch(request):
         return render(request,'docscearch.html')
+def pharmacysignup(request):
+        return render(request,'phar.html')
 def appoimentscearch(request):
         return render(request,'searchappointment.html')
 def pharmcyscearch(request):
+        return render(request,'pharscearch.html')
+def phalogin(request):
         return render(request,'pharscearch.html')
 
 def search_view(request):
@@ -75,7 +92,7 @@ def update_password1(request):
                 update_session_auth_hash(request, request.user)
 
                 messages.success(request, 'Your password was successfully updated!')
-                return redirect('pathome')
+                return render(request,'login.html')
         else:
             messages.error(request, 'Incorrect current password.')
 
@@ -101,7 +118,7 @@ def update_password(request):
                 update_session_auth_hash(request, request.user)
 
                 messages.success(request, 'Your password was successfully updated!')
-                return redirect('doctorlogin')
+                return render(request,'login.html')
         else:
             messages.error(request, 'Incorrect current password.')
 
@@ -177,7 +194,7 @@ def approve(request,pk):
     usr.save()
     pro.delete()
     subject='Your Approval has been successful'
-    message=f' sir, ur patient id={usr.user.username}'' password={} '.format(pa)
+    message=f' sir, ur patient username={usr.user.username} \n user_id={usr.id}'' password={} '.format(pa)
     recipient=use.email
     send_mail(subject,message,settings.EMAIL_HOST_USER,[recipient])
     return render(request, 'admin_home.html', locals())
@@ -225,6 +242,7 @@ def adminlogin(request):
         user = authenticate(username=u, password=p)
         don1=Doctor.objects.filter(user=user)
         pat1=Patient.objects.filter(user=user)
+        pha1=Pharmacy1.objects.filter(user=user)
         if user is not None:
             if don1:
                 login(request,user)
@@ -234,6 +252,9 @@ def adminlogin(request):
                 login(request,user)
                 patient1 = Patient.objects.get(user_id=user)
                 return render(request,'patlogin.html',{'patient':patient1})
+            elif pha1:
+                login(request,user)
+                return render(request,'phrlogin.html')
             else :
                 login(request,user)
                 return redirect('admin_home')
@@ -262,6 +283,7 @@ def Logout(request):
     return redirect('index')
 
 def add_doctor(request):
+    error=""
     if request.method=='POST':
         n = request.POST['name']
         m = request.POST['mobile']
@@ -276,9 +298,14 @@ def add_doctor(request):
         usr.user= use
         usr.save()
         subject='Your Approval has been successful'
-        message=f' sir, ur Doctor id={usr.user.username}'' password={} '.format(pa)
+        message=f' sir, ur username ={usr.user.username}'' password={} '.format(pa)
         recipient=use.email
         send_mail(subject,message,settings.EMAIL_HOST_USER,[recipient])
+        try:
+    
+            error = "no"
+        except:
+            error = "yes"
     return render(request,'view_doctor.html')
 
 def view_doctor(request):
@@ -323,6 +350,7 @@ def edit_doctor(request,pid):
     return render(request, 'edit_doctor.html', locals())
 
 def add_patient(request):
+    error=""
     if request.method == 'POST':
         n = request.POST['name']
         g = request.POST['gender']
@@ -341,6 +369,11 @@ def add_patient(request):
         message=" sir, ur patient id={} password={} ".format(p,pa)
         recipient=use.email
         send_mail(subject,message,settings.EMAIL_HOST_USER,[recipient])
+        try:
+    
+            error = "no"
+        except:
+            error = "yes"
     return redirect('/')
 
 def view_patient(request):

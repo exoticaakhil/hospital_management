@@ -6,6 +6,18 @@ body{
     background-color: bisque;
   }
 </style>
+{% if error == "no" %}
+     <script>
+	   alert('wait for approve');
+       window.location=("{% url  'patient_signup' %}");
+     </script>
+{% endif %}
+
+{% if error == "yes" %}
+     <script>
+	    alert('Something went wrong, Try Again');
+     </script>
+{% endif %}
 <br>
 <div class="container card shadow m-5" style="background-color: bisque;">
 		<div class="card-body" >
@@ -26,7 +38,7 @@ body{
                     	<div class="col-sm-12">
 							<div class="form-group">
 								<label>Mobile Number</label>
-								<input type="text" name="mobile" class="form-control" placeholder="Enter Ten Digit Mobile Number" required  min="10" max="10" pattern="[0-9]{10}>
+								<input type="text" name="mobile" class="form-control" placeholder="Enter Ten Digit Mobile Number" required  min="10" max="10" pattern="[0-9]{10}">
 							</div>
 						</div>
 

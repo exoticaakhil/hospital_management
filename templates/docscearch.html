@@ -54,11 +54,9 @@
                       <th scope="col">Doctor Name</th>
                       <th scope="col">Patient Name</th>
                       <th scope="col">Patient ID</th>
-                      <th scope="col">Date</th>
-                      <th scope="col">Time</th>
-                      <th scope="col">token</th>
                       <th scope="col">Symptoms</th>
-                      <th scope="col">Action</th>
+                      <th scope="col">Medicine</th>
+
                     </tr>
                   </thead>
                   <tbody>
@@ -66,15 +64,12 @@
               <tbody>
               {% for i in products %}
               <tr>
-                  <td>{{i.doctor}}</td>
-                  <td>{{i.patient}}</td>
-                  <td>{{i.patient_id}}</td>
-                  <td>{{i.date1}}</td>
-                  <td>{{i.time1}}</td>
-                  <td>{{i.token}}</td>
-                  <td>{{i.Symptoms}}</td>
-                  <td><a href="{% url 'editpatient' i.id %}" onclick="return confirm('diagnosis ?')" class="btn btn-danger">Diagnosis</a></td>
-                  <td><a href="{% url 'delete2' i.id %}" onclick="return confirm('Delete the Appoiment ?')" class="btn btn-danger">Delete</a></td>
+                <td class="font-w600">{{i.Doctor1}}</td>
+                <td class="font-w600">{{i.Patient1}}</td>
+                <td class="font-w600">{{i.Patientno}}</td>
+                <td class="font-w600">{{i.Symptoms}}</td>
+                <td class="font-w600">{{i.medicine}}</td>
+                 
                  <td>
                 </tr>
                  {% endfor %}

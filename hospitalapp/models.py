@@ -79,3 +79,7 @@ class Pharmacy(models.Model):
     Symptoms=models.CharField(max_length=255,null=True)
     medicine=models.CharField(max_length=255,null=True)
     Patientno=models.CharField(max_length=255,null=True)
+class Pharmacy1(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+    Name = models.CharField(max_length=255,null=True)
+    

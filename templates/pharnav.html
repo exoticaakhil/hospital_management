@@ -9,7 +9,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <script src="https://kit.fontawesome.com/0b1b56eff4.js" crossorigin="anonymous"></script>
+
 
   <link rel="stylesheet" href="{% static 'style.css' %}">
 
@@ -17,6 +17,9 @@
   <style media="screen">
     a:link {
       text-decoration: none;
+    }
+    body{
+      background-color: bisque;
     }
 
     a {
@@ -213,35 +216,31 @@
   <nav class="menu" tabindex="0">
     <div class="smartphone-menu-trigger"></div>
     <header class="avatar">
-      <img src="https://www.hindustantimes.com/ht-img/img/2023/06/11/1600x900/A-cath-lab-is-a-specialised-facility-where-doctors_1686248714391_1686474198440.jpg"/>
+      <img src="{% static 'images/h8.png' %}" />
       <br><br>
-      <h6 style="color : white">{{doctor.name}}</h6>
+      <h6 style="color : white">pharmacy</h6>
 
     </header>
     <ul>
-      <li tabindex="0" class="icon-dashboard"> <a style="color:white; text-decoration:none;" href="{% url 'doctorlogin' %}"><span>Dashboard</span></a> </li>
-      <li tabindex="0" class="nav-item dropdown icon-customers">
-        <a href="" class="nav-link dropdown-toggle text-dark bg-light" id="navbardrop"
-				data-toggle="dropdown" style="color:white; text-decoration:none;"> Appoiment </a>
-				<div class="dropdown-menu">
-					<a href="{% url 'doctor_dashboard_view' %}" class="dropdown-item">View Appoiment</a>
-				</div>
-      </li>
-      <li tabindex="0" class="nav-item dropdown icon-customers">
-        <a href="" class="nav-link dropdown-toggle text-dark bg-light" id="navbardrop"
-				data-toggle="dropdown" style="color:white; text-decoration:none;"> Settings </a>
-				<div class="dropdown-menu">
-					<a href="{% url 'doctorreset' %}" class="dropdown-item">Reset password</a>
-				</div>
-      </li>
+      <li tabindex="0" class="icon-dashboard"> <a style="color:white; text-decoration:none;" href="{% url 'admin_home' %}"><span>Dashboard</span></a> </li>
 
+
+      <li tabindex="0" class="nav-item dropdown icon-calendar">
+        <a href="" class="nav-link dropdown-toggle text-dark bg-light" id="navbardrop"
+				data-toggle="dropdown" style="color:white; text-decoration:none;"> Pharmacy</a>
+				<div class="dropdown-menu">
+					<a href="{% url 'pharmacy' %}" class="dropdown-item">View </a>
+          
+           
+				</div>
+      </li>
     </ul>
   </nav>
 
   <main>
     <!-- nav start -->
     <div class="bs-example">
-      <nav class="navbar navbar-expand-md  navbar-dark fixed-top" style="background:#c2185b;" >
+      <nav class="navbar navbar-expand-md  navbar-dark fixed-top" style="background:#c2185b;">
         <a href="#" class="navbar-brand">HOSPITAL MANAGEMENT SYSTEM</a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
           <span class="navbar-toggler-icon"></span>
@@ -258,7 +257,9 @@
 
     <!-- content start-->
     {% block content %}
-    {% endblock %}
+
+    {% endblock content %}
+    <!-- content end-->
   </main>
 </body>
 </html>

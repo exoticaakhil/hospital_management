@@ -16,6 +16,18 @@
 	}
 </style>
 <body>
+	{% if error == "no" %}
+     <script>
+	   alert('Doctor as added');
+       window.location=("{% url 'view_doctor' %}");
+     </script>
+{% endif %}
+
+{% if error == "yes" %}
+     <script>
+	    alert('Something went wrong, Try Again');
+     </script>
+{% endif %}
 <br><br><br><br>
 <div class="container card shadow m-5">
 		<div class="card-body">
@@ -35,7 +47,7 @@
                     	<div class="col-sm-12">
 							<div class="form-group">
 								<label>Contact Number</label>
-								<input type="text" name="mobile" class="form-control" placeholder="Enter Ten Digit Mobile Number" required min="10" max="10" pattern="[0-9]{10}>
+								<input type="text" name="mobile" class="form-control" placeholder="Enter Ten Digit Mobile Number" required min="10" max="10" pattern="[0-9]{10}">
 							</div>
 						</div>
 						<div class="col-sm-12">
